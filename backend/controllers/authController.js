@@ -26,9 +26,15 @@ class AuthController
 
             // 1. Validación de presencia
             if (!username || !password) {
-                return res.status(400).json({ message: "Usuario y contraseña son requeridos." });
+                return res.status(400).json({ 
+                    message: "Usuario y contraseña son requeridos." });
             }
 
+            // 2. Validación de longitud de contraseña GUILLE-BARBI
+            if (password.length < 6) {
+                return res.status(400).json({
+                    message: "La contraseña es demasiado corta"});
+            }
             const hashedPassword = await bcrypt.hash(password, 10);            
             
             // 2. Creación mediante el repositorio (que usa el SP sp_create_user)
