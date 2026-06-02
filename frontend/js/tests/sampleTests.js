@@ -61,3 +61,27 @@ testUtils.createTestButton("Test Subir Sample (Simulado)", async (btn) => {
     testUtils.log(data);
     if (response.ok) testUtils.setSuccess(btn);
 });
+
+/**
+ * Test Opción 9: Borrado Fantasma (HTTP 404)
+ * Intenta borrar un sample con un ID que no existe en la base de datos.
+ * El servidor debe responder con 404 si no encuentra el registro.
+ */
+
+testUtils.createTestButton("Test Borrado Fantasma (ID inexistente)", async (btn) => {
+    const token = localStorage.getItem('test_token');
+
+    const response = await fetch('/api/samples/99999', {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${token}` }
+    });
+
+    const data = await response.json();
+    testUtils.log(data);
+
+    if (response.status === 404) {
+        document.getElementById('modal-message').textContent = data.message;
+        document.getElementById('error-modal').style.display = 'block';
+        testUtils.setSuccess(btn);
+    }
+});
