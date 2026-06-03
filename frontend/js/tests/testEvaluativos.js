@@ -1,8 +1,4 @@
-// test evaluativos
-
 // "Test: Subida - Coherencia del BPM"
-// "Test: Subida - Coherencia del BPM"
-
 testUtils.createTestButton("Test subir sample con BPM erroneo", async (btn) => {
 
     await okLogin(); // se encuentra un error en el login, el token es invalido. 
