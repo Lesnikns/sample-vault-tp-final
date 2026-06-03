@@ -2,7 +2,7 @@
 
 **SampleVault** es una aplicación web diseñada para la gestión profesional de librerías de sonido. Permite a los productores musicales subir, categorizar, escuchar y organizar sus muestras de audio (samples) de forma privada y segura, todo bajo una arquitectura modular y eficiente.
 
----
+--- 
 
 ## 🚀 Características Principales
 
